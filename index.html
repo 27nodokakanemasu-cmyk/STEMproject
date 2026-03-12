@@ -5,275 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nodoka's Study Planner</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Sky Background with Celestial Bodies -->
+    <!-- Dynamic Sky Background -->
     <div class="sky-container">
-        <div class="celestial-body" id="celestial">
-            <div class="sun-rays" id="sunRays"></div>
-        </div>
-        <div class="stars-container" id="stars"></div>
-        <div class="clouds-container" id="clouds"></div>
+        <div class="celestial-body" id="celestial"></div>
+        <div class="stars-container" id="starsContainer"></div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-brand">
-            <span class="brand-text">Study Planner</span>
-        </div>
-        <ul class="nav-menu">
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#planner" class="nav-link">Planner</a></li>
-            <li><a href="#resources" class="nav-link">Resources</a></li>
-            <li><a href="#games" class="nav-link">Mini Games</a></li>
+        <div class="nav-brand">Study Planner</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#baumkuchen">Dashboard</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#games">Games</a></li>
         </ul>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Header Section -->
-        <header class="header-section" id="home">
-            <div class="header-content">
-                <div class="profile-image-container">
-                    <img src="https://z-cdn-media.chatglm.cn/files/aa9b27cc-59c0-422c-8243-67456451ceeb.jpg?auth_key=1873296785-c6c2fd7c5954456cb5fce4ccf00507c9-0-39873c540f0f2430665c17fa8ea41fec" alt="Nodoka's Profile" class="profile-image">
-                    <div class="profile-ring"></div>
-                </div>
-                <div class="header-text">
-                    <h1 class="name-title">I'm Nodoka</h1>
-                    <p class="career-text">Career Student</p>
-                    <div class="time-greeting" id="timeGreeting">Good Morning</div>
-                </div>
+    <!-- Header Section -->
+    <header id="home" class="header-section">
+        <div class="header-content">
+            <div class="profile-img-box">
+                <!-- Using a placeholder image that matches the 'green clover' description -->
+                <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Four-leaf clover profile" class="profile-img">
             </div>
-        </header>
+            <div class="header-text">
+                <h1 class="name-title">I'm Nodoka</h1>
+                <p class="career-text">Career Student</p>
+                <div class="greeting-box" id="greetingBox">Good Morning</div>
+            </div>
+        </div>
+    </header>
 
-        <!-- Baumkuchen Widget -->
-        <section class="baumkuchen-section">
-            <div class="baumkuchen-container">
-                <div class="baumkuchen-ring">
-                    <svg viewBox="0 0 400 400" class="baumkuchen-svg">
-                        <!-- Weather Half -->
-                        <g class="weather-half">
-                            <circle cx="200" cy="200" r="180" fill="none" stroke="var(--wine-dark)" stroke-width="40" stroke-dasharray="565.48" stroke-dashoffset="282.74" transform="rotate(-90 200 200)"/>
-                            <circle cx="200" cy="200" r="140" fill="none" stroke="var(--wine-medium)" stroke-width="30" stroke-dasharray="439.82" stroke-dashoffset="219.91" transform="rotate(-90 200 200)"/>
-                            <circle cx="200" cy="200" r="100" fill="none" stroke="var(--wine-light)" stroke-width="25" stroke-dasharray="314.16" stroke-dashoffset="157.08" transform="rotate(-90 200 200)"/>
-                        </g>
-                        <!-- Timer Half -->
-                        <g class="timer-half">
-                            <circle cx="200" cy="200" r="180" fill="none" stroke="var(--beige-dark)" stroke-width="40" stroke-dasharray="565.48" stroke-dashoffset="282.74" transform="rotate(90 200 200)"/>
-                            <circle cx="200" cy="200" r="140" fill="none" stroke="var(--beige-medium)" stroke-width="30" stroke-dasharray="439.82" stroke-dashoffset="219.91" transform="rotate(90 200 200)"/>
-                            <circle cx="200" cy="200" r="100" fill="none" stroke="var(--beige-light)" stroke-width="25" stroke-dasharray="314.16" stroke-dashoffset="157.08" transform="rotate(90 200 200)"/>
-                        </g>
-                    </svg>
-                    
-                    <!-- Weather Display -->
-                    <div class="weather-display">
-                        <div class="weather-icon" id="weatherIcon">
-                            <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <circle cx="12" cy="12" r="5"/>
-                                <g stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="1" x2="12" y2="3"/>
-                                    <line x1="12" y1="21" x2="12" y2="23"/>
-                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                                    <line x1="1" y1="12" x2="3" y2="12"/>
-                                    <line x1="21" y1="12" x2="23" y2="12"/>
-                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                                </g>
-                            </svg>
-                        </div>
-                        <div class="weather-info">
-                            <span class="temperature" id="temperature">22°C</span>
-                            <span class="weather-desc" id="weatherDesc">Sunny</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Timer Display -->
-                    <div class="timer-display">
-                        <div class="timer-time" id="timerDisplay">00:00:00</div>
-                        <div class="timer-controls">
-                            <button class="timer-btn" id="timerStart">Start</button>
-                            <button class="timer-btn" id="timerPause">Pause</button>
-                            <button class="timer-btn" id="timerReset">Reset</button>
-                        </div>
-                        <div class="timer-presets">
-                            <button class="preset-btn" data-minutes="25">25min</button>
-                            <button class="preset-btn" data-minutes="45">45min</button>
-                            <button class="preset-btn" data-minutes="60">60min</button>
-                        </div>
-                    </div>
-                </div>
+    <!-- Baumkuchen Dashboard Section -->
+    <section id="baumkuchen" class="baumkuchen-section">
+        <h2 class="section-title">Dashboard</h2>
+        <div class="baumkuchen-widget">
+            <div class="baumkuchen-ring">
+                <!-- Concentric Rings -->
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+                <div class="ring ring-4"></div>
                 
-                <!-- Labels -->
-                <div class="baumkuchen-labels">
-                    <span class="label-weather">Weather</span>
-                    <span class="label-timer">Timer</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Study Planner Section -->
-        <section class="planner-section" id="planner">
-            <h2 class="section-title">Study Planner</h2>
-            <div class="planner-container">
-                <div class="calendar-container">
-                    <div class="calendar-header">
-                        <button class="cal-nav" id="prevMonth">&#8249;</button>
-                        <span class="current-month" id="currentMonth"></span>
-                        <button class="cal-nav" id="nextMonth">&#8250;</button>
+                <!-- Center Content Split -->
+                <div class="baum-center">
+                    <!-- Left Half: Weather -->
+                    <div class="baum-half weather-half">
+                        <div class="weather-icon" id="weatherIcon">☀️</div>
+                        <div class="temp" id="temperature">22°C</div>
+                        <div class="weather-label">Weather</div>
                     </div>
-                    <div class="calendar-grid" id="calendarGrid"></div>
-                </div>
-                <div class="task-panel">
-                    <h3 class="panel-title">Today's Tasks</h3>
-                    <div class="task-input-container">
-                        <input type="text" class="task-input" id="taskInput" placeholder="Add new task...">
-                        <select class="task-priority" id="taskPriority">
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
-                        </select>
-                        <button class="add-task-btn" id="addTaskBtn">Add</button>
-                    </div>
-                    <ul class="task-list" id="taskList"></ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects-section" id="projects">
-            <h2 class="section-title">Project Demonstration</h2>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">Project 1</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Web Development</h3>
-                        <p>Building responsive and interactive web applications</p>
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
+                    <!-- Right Half: Timer -->
+                    <div class="baum-half timer-half">
+                        <div class="timer-display" id="timerDisplay">00:00</div>
+                        <div class="timer-controls">
+                            <button onclick="startTimer()">Start</button>
+                            <button onclick="pauseTimer()">Pause</button>
+                            <button onclick="resetTimer()">Reset</button>
                         </div>
+                        <div class="timer-label">Timer</div>
                     </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">Project 2</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Data Analysis</h3>
-                        <p>Analyzing datasets to extract meaningful insights</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Pandas</span>
-                            <span class="tag">Visualization</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">Project 3</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Research Paper</h3>
-                        <p>Academic research and documentation</p>
-                        <div class="project-tags">
-                            <span class="tag">Academic</span>
-                            <span class="tag">Writing</span>
-                            <span class="tag">Research</span>
-                        </div>
-                    </div>
-                </article>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Resources Section -->
-        <section class="resources-section" id="resources">
-            <h2 class="section-title">Upload Resources</h2>
-            <div class="upload-area" id="uploadArea">
-                <div class="upload-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="17 8 12 3 7 8"/>
-                        <line x1="12" y1="3" x2="12" y2="15"/>
-                    </svg>
-                </div>
-                <p class="upload-text">Drag and drop files here or click to browse</p>
-                <input type="file" class="file-input" id="fileInput" multiple>
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Project Demonstration</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="card-header">Web App</div>
+                <p>Study Planner Development</p>
+                <span class="tag">HTML/CSS</span>
             </div>
-            <div class="uploaded-files" id="uploadedFiles"></div>
-        </section>
+            <div class="project-card">
+                <div class="card-header">Research</div>
+                <p>Data Analysis Project</p>
+                <span class="tag">Python</span>
+            </div>
+            <div class="project-card">
+                <div class="card-header">Design</div>
+                <p>UI/UX Case Study</p>
+                <span class="tag">Figma</span>
+            </div>
+        </div>
+    </section>
 
-        <!-- Mini Games Section -->
-        <section class="games-section" id="games">
-            <h2 class="section-title">Mini Games</h2>
-            <div class="games-grid">
-                <div class="game-card" id="memoryGame">
-                    <div class="game-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <rect x="3" y="3" width="7" height="7" rx="1"/>
-                            <rect x="14" y="3" width="7" height="7" rx="1"/>
-                            <rect x="3" y="14" width="7" height="7" rx="1"/>
-                            <rect x="14" y="14" width="7" height="7" rx="1"/>
-                        </svg>
-                    </div>
-                    <h3>Memory Match</h3>
-                    <p>Test your memory skills</p>
-                    <button class="play-btn">Play</button>
-                </div>
-                <div class="game-card" id="typingGame">
-                    <div class="game-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <rect x="2" y="4" width="20" height="16" rx="2"/>
-                            <line x1="6" y1="8" x2="6" y2="8" stroke="var(--bg)" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="10" y1="8" x2="10" y2="8" stroke="var(--bg)" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="14" y1="8" x2="14" y2="8" stroke="var(--bg)" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="18" y1="8" x2="18" y2="8" stroke="var(--bg)" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="8" y1="12" x2="16" y2="12" stroke="var(--bg)" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Speed Typing</h3>
-                    <p>Improve your typing speed</p>
-                    <button class="play-btn">Play</button>
-                </div>
-                <div class="game-card" id="quizGame">
-                    <div class="game-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="var(--bg)" stroke-width="2" fill="none"/>
-                            <circle cx="12" cy="17" r="1" fill="var(--bg)"/>
-                        </svg>
-                    </div>
-                    <h3>Quick Quiz</h3>
-                    <p>Challenge your knowledge</p>
-                    <button class="play-btn">Play</button>
-                </div>
-            </div>
-            
-            <!-- Game Modal -->
-            <div class="game-modal" id="gameModal">
-                <div class="modal-content">
-                    <button class="modal-close" id="closeModal">&times;</button>
-                    <div class="game-container" id="gameContainer"></div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- Resources Section -->
+    <section id="resources" class="resources-section">
+        <h2 class="section-title">Upload Resources</h2>
+        <div class="upload-zone" id="uploadZone">
+            <p>Drag & Drop files here or Click to Upload</p>
+            <input type="file" id="fileInput" hidden multiple>
+        </div>
+        <div class="file-list" id="fileList"></div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 Nodoka's Study Planner. All rights reserved.</p>
+    <!-- Mini Games Section -->
+    <section id="games" class="games-section">
+        <h2 class="section-title">Mini Games</h2>
+        <div class="games-grid">
+            <div class="game-card" onclick="alert('Memory Game Starting!')">
+                <h3>Memory Match</h3>
+                <p>Test your memory</p>
+            </div>
+            <div class="game-card" onclick="alert('Typing Game Starting!')">
+                <h3>Speed Typing</h3>
+                <p>Improve typing speed</p>
+            </div>
+            <div class="game-card" onclick="alert('Quiz Starting!')">
+                <h3>Quick Quiz</h3>
+                <p>Challenge yourself</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Nodoka's Study Planner</p>
     </footer>
 
     <script src="script.js"></script>
