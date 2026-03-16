@@ -1,136 +1,77 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nodoka's Study Planner</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Wakana's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Dynamic Sky Background -->
-    <div class="sky-container">
-        <div class="celestial-body" id="celestial"></div>
-        <div class="stars-container" id="starsContainer"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-brand">Study Planner</div>
+    <!-- Navigation Bar -->
+    <nav>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#baumkuchen">Dashboard</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#career">Career</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#resources">Resources</a></li>
-            <li><a href="#games">Games</a></li>
+            <li><a href="#games">Mini Games</a></li>
         </ul>
-        <div class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-        </div>
     </nav>
 
-    <!-- Header Section -->
-    <header id="home" class="header-section">
-        <div class="header-content">
-            <div class="profile-img-box">
-                <!-- Using a placeholder image that matches the 'green clover' description -->
-                <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Four-leaf clover profile" class="profile-img">
-            </div>
-            <div class="header-text">
-                <h1 class="name-title">I'm Nodoka</h1>
-                <p class="career-text">Career Student</p>
-                <div class="greeting-box" id="greetingBox">Good Morning</div>
-            </div>
-        </div>
+    <!-- Header -->
+    <header>
+        <img src="your-photo.jpg" alt="Wakana's Photo" class="profile-pic">
+        <h1>Hello, I'm Wakana!</h1>
+        <p>Web Apps Developer | Passionate about Minimalist Design & Fun Projects</p>
     </header>
 
-    <!-- Baumkuchen Dashboard Section -->
-    <section id="baumkuchen" class="baumkuchen-section">
-        <h2 class="section-title">Dashboard</h2>
-        <div class="baumkuchen-widget">
-            <div class="baumkuchen-ring">
-                <!-- Concentric Rings -->
-                <div class="ring ring-1"></div>
-                <div class="ring ring-2"></div>
-                <div class="ring ring-3"></div>
-                <div class="ring ring-4"></div>
-                
-                <!-- Center Content Split -->
-                <div class="baum-center">
-                    <!-- Left Half: Weather -->
-                    <div class="baum-half weather-half">
-                        <div class="weather-icon" id="weatherIcon">☀️</div>
-                        <div class="temp" id="temperature">22°C</div>
-                        <div class="weather-label">Weather</div>
-                    </div>
-                    <!-- Right Half: Timer -->
-                    <div class="baum-half timer-half">
-                        <div class="timer-display" id="timerDisplay">00:00</div>
-                        <div class="timer-controls">
-                            <button onclick="startTimer()">Start</button>
-                            <button onclick="pauseTimer()">Pause</button>
-                            <button onclick="resetTimer()">Reset</button>
-                        </div>
-                        <div class="timer-label">Timer</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi! I’m a high school student currently studying abroad and exploring web development. I love creating interactive projects using just HTML, CSS, and JavaScript. I also enjoy designing minimalistic, clean interfaces with burgundy and gray themes.</p>
+    </section>
+
+    <!-- Career Section -->
+    <section id="career">
+        <h2>Career</h2>
+        <ul>
+            <li>Web Apps Developer (Beginner to Intermediate)</li>
+            <li>Human Geography & Science Projects</li>
+            <li>Film and Media Enthusiast</li>
+        </ul>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <h2 class="section-title">Project Demonstration</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="card-header">Web App</div>
-                <p>Study Planner Development</p>
-                <span class="tag">HTML/CSS</span>
-            </div>
-            <div class="project-card">
-                <div class="card-header">Research</div>
-                <p>Data Analysis Project</p>
-                <span class="tag">Python</span>
-            </div>
-            <div class="project-card">
-                <div class="card-header">Design</div>
-                <p>UI/UX Case Study</p>
-                <span class="tag">Figma</span>
-            </div>
+    <section id="projects">
+        <h2>Project Demonstration</h2>
+        <div class="project-card">
+            <h3>Mini Portfolio Website</h3>
+            <p>A clean website to showcase my career and projects.</p>
+        </div>
+        <div class="project-card">
+            <h3>Interactive Games</h3>
+            <p>Simple games made with JavaScript.</p>
         </div>
     </section>
 
     <!-- Resources Section -->
-    <section id="resources" class="resources-section">
-        <h2 class="section-title">Upload Resources</h2>
-        <div class="upload-zone" id="uploadZone">
-            <p>Drag & Drop files here or Click to Upload</p>
-            <input type="file" id="fileInput" hidden multiple>
-        </div>
-        <div class="file-list" id="fileList"></div>
+    <section id="resources">
+        <h2>Upload Resources</h2>
+        <p>You can upload your files here:</p>
+        <input type="file" id="file-upload" multiple>
+        <div id="file-list"></div>
     </section>
 
     <!-- Mini Games Section -->
-    <section id="games" class="games-section">
-        <h2 class="section-title">Mini Games</h2>
-        <div class="games-grid">
-            <div class="game-card" onclick="alert('Memory Game Starting!')">
-                <h3>Memory Match</h3>
-                <p>Test your memory</p>
-            </div>
-            <div class="game-card" onclick="alert('Typing Game Starting!')">
-                <h3>Speed Typing</h3>
-                <p>Improve typing speed</p>
-            </div>
-            <div class="game-card" onclick="alert('Quiz Starting!')">
-                <h3>Quick Quiz</h3>
-                <p>Challenge yourself</p>
-            </div>
-        </div>
+    <section id="games">
+        <h2>Mini Games</h2>
+        <button id="click-game-btn">Click Game</button>
+        <p>Score: <span id="score">0</span></p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Nodoka's Study Planner</p>
+        <p>&copy; 2026 Wakana Portfolio</p>
     </footer>
 
     <script src="script.js"></script>
