@@ -1,109 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
-<meta charset="UTF-8">
-<title>Nodoka Portfolio</title>
+    <meta charset="UTF-8">
+    <title>Nodoka Portfolio</title>
+    <!-- CSSは別途作成するか、以下のstyleタグの内容をstyle.cssに保存してください -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 参考までに、ご要望の色に合わせたCSSの例をここに記載します */
+        body {
+            background-color: #fff0f5; /* パステルピンクの背景 */
+            color: #4b0082; /* 濃い紫の文字 */
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Bebas+Neue&display=swap" rel="stylesheet">
+        header {
+            background-color: #e6e6fa; /* ラベンダー（薄い紫） */
+            padding: 50px;
+            text-align: center;
+            border-bottom: 5px solid #ffb6c1; /* パステルピンクのアクセント */
+        }
 
+        h1, h2, h3, .logo {
+            font-family: 'Bebas Neue', cursive;
+            color: #8a2be2; /* 明るい紫 */
+        }
+
+        nav {
+            background-color: #9370db; /* ミディアムパープル */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-left: 5px solid #ffb6c1; /* ピンクの縦線 */
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background-color: #9370db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8a2be2;
+        }
+    </style>
 </head>
 
 <body>
 
-<nav>
-<h2 class="logo">Nodoka</h2>
+    <nav>
+        <h2 class="logo">Nodoka</h2>
 
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#learning">Learning</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#games">Games</a></li>
-</ul>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#games">Games</a></li>
+        </ul>
+    </nav>
 
-</nav>
 
-<header>
+    <header>
+        <!-- プロフィール画像がない場合は、このimgタグはエラーになるので注意してください -->
+        <img src="profile.jpg" alt="Nodoka" class="profile" style="width:150px; border-radius:50%;">
+        <h1>Hello, I'm Nodoka</h1>
+        <p>FCIS Student | Web Application Developer</p>
+    </header>
 
-<img src="profile.jpg" class="profile">
 
-<h1>Hello, I'm Nodoka</h1>
+    <section id="about" style="padding: 20px;">
+        <h2>About Me</h2>
+        <p>
+            My name is Nodoka and I am a student at FCIS. 
+            I am interested in web application development and enjoy building websites using simple technologies such as HTML, CSS, and JavaScript.
+            I like designing clean and minimalist webpages and experimenting with interactive elements like small games and useful web tools.
+        </p>
+    </section>
 
-<p>Student | Web Application Developer</p>
 
-</header>
+    <section id="learning" style="padding: 20px;">
+        <h2>Learning</h2>
+        <ul>
+            <li>HTML webpage structure</li>
+            <li>CSS layout and minimalist design</li>
+            <li>JavaScript interactive features</li>
+            <li>Front-end web development</li>
+        </ul>
+    </section>
 
-<section id="about">
 
-<h2>About Me</h2>
+    <section id="projects" style="padding: 20px;">
+        <h2>Project Demo</h2>
+        <div class="card">
+            <h3>Portfolio Website</h3>
+            <p>A personal website built with HTML, CSS and JavaScript.</p>
+        </div>
+        <div class="card">
+            <h3>Simple Task Tool</h3>
+            <p>A small JavaScript tool to manage simple tasks.</p>
+        </div>
+    </section>
 
-<p>
-My name is Nodoka and I am a student. 
-I am interested in web application development and enjoy building websites using simple technologies such as HTML, CSS, and JavaScript.
 
-I like designing clean and minimalist webpages and experimenting with interactive elements like small games and useful web tools.
-</p>
+    <section id="resources" style="padding: 20px;">
+        <h2>Uploaded Resources</h2>
+        <input type="file" id="fileInput">
+        <button onclick="upload()">Upload</button>
+        <p id="status"></p>
+    </section>
 
-</section>
 
-<section id="learning">
+    <section id="games" style="padding: 20px;">
+        <h2>Mini Game</h2>
+        <p>Click the button to increase your score.</p>
+        <button onclick="addScore()">Click</button>
+        <p>Score: <span id="score">0</span></p>
+    </section>
 
-<h2>Learning</h2>
 
-<ul>
-<li>HTML webpage structure</li>
-<li>CSS layout and minimalist design</li>
-<li>JavaScript interactive features</li>
-<li>Front-end web development</li>
-</ul>
+    <footer style="text-align: center; padding: 20px; background-color: #e6e6fa;">
+        <p>© 2026 Nodoka</p>
+    </footer>
 
-</section>
 
-<section id="projects">
-
-<h2>Project Demo</h2>
-
-<div class="card">
-
-<h3>Portfolio Website</h3>
-<p>A personal website built with HTML, CSS and JavaScript.</p>
-
-</div>
-
-<div class="card">
-
-<h3>Simple Task Tool</h3>
-<p>A small JavaScript tool to manage simple tasks.</p>
-
-</div>
-
-</section>
-
-<section id="resources">
-
-<h2>Uploaded Resources</h2>
-<input type="file" id="fileInput">
-<button onclick="upload()">Upload</button>
-<p id="status"></p>
-
-</section>
-
-<section id="games">
-
-<h2>Mini Game</h2>
-<p>Click the button to increase your score.</p>
-<button onclick="addScore()">Click</button>
-<p>Score: <span id="score">0</span></p>
-
-</section>
-
-<footer>
-<p>© 2026 Nodoka</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
