@@ -1,158 +1,229 @@
 <!DOCTYPE html>
-<html lang="ja">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nodoka Portfolio</title>
-    <!-- CSSは別途作成するか、以下のstyleタグの内容をstyle.cssに保存してください -->
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Bebas+Neue&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodoka | Portfolio</title>
     <style>
-        /* 参考までに、ご要望の色に合わせたCSSの例をここに記載します */
+        :root {
+            --deep-red: #600f18;
+            --sakura-pink: #FFD1DC;
+            --text-gray: #333333;
+        }
+
         body {
-            background-color: #fff0f5; /* パステルピンクの背景 */
-            color: #4b0082; /* 濃い紫の文字 */
-            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-gray);
+            /* Calibriを最優先に設定 */
+            font-family: 'Calibri', 'Candara', 'Segoe UI', 'Optima', sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        header {
-            background-color: #e6e6fa; /* ラベンダー（薄い紫） */
-            padding: 50px;
-            text-align: center;
-            border-bottom: 5px solid #ffb6c1; /* パステルピンクのアクセント */
-        }
-
-        h1, h2, h3, .logo {
-            font-family: 'Bebas Neue', cursive;
-            color: #8a2be2; /* 明るい紫 */
+            line-height: 1.6;
         }
 
         nav {
-            background-color: #9370db; /* ミディアムパープル */
+            background: #ffffff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 25px 60px;
+            border-bottom: 1px solid var(--sakura-pink);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            color: var(--deep-red);
+            font-weight: bold;
         }
 
         nav ul {
             list-style: none;
             display: flex;
+            gap: 40px;
+            margin: 0;
         }
 
         nav ul li a {
-            color: white;
             text-decoration: none;
-            margin-left: 20px;
+            color: var(--text-gray);
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--deep-red);
+        }
+
+        header {
+            background: linear-gradient(180deg, var(--sakura-pink) 0%, #ffffff 100%);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            object-fit: cover;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--deep-red);
+            margin: 10px 0;
+        }
+
+        header p {
+            color: var(--deep-red);
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        section {
+            max-width: 700px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--deep-red);
+            text-align: center;
+            margin-bottom: 40px;
         }
 
         .card {
-            background-color: white;
-            border-left: 5px solid #ffb6c1; /* ピンクの縦線 */
-            padding: 15px;
-            margin: 10px 0;
+            background: #ffffff;
+            padding: 30px;
+            border: 1px solid var(--sakura-pink);
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(255, 209, 220, 0.3);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--deep-red);
+            font-size: 1.2rem;
         }
 
         button {
-            background-color: #9370db;
-            color: white;
+            background: var(--deep-red);
+            color: #ffffff;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 14px 40px;
+            border-radius: 25px;
+            font-family: 'Calibri', sans-serif;
+            font-size: 1rem;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         button:hover {
-            background-color: #8a2be2;
+            background: var(--sakura-pink);
+            color: var(--deep-red);
+        }
+
+        .upload-box, .game-box {
+            background: #fffafa;
+            padding: 50px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid var(--sakura-pink);
+        }
+
+        .score-display {
+            font-size: 5rem;
+            color: var(--deep-red);
+            margin: 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid #f5f5f5;
+            color: #999;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-
 <body>
 
     <nav>
-        <h2 class="logo">Nodoka</h2>
-
+        <div class="logo">Nodoka</div>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#learning">Learning</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#games">Games</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#games">Play</a></li>
         </ul>
     </nav>
 
-
     <header>
-        <!-- プロフィール画像がない場合は、このimgタグはエラーになるので注意してください -->
-        <img src="profile.jpg" alt="Nodoka" class="profile" style="width:150px; border-radius:50%;">
-        <h1>Hello, I'm Nodoka</h1>
-        <p>FCIS Student | Web Application Developer</p>
+        <img src="profile.jpg" alt="Nodoka" class="profile-img" onerror="this.src='https://via.placeholder.com'">
+        <h1>Nodoka</h1>
+        <p>G11 Student</p>
     </header>
 
-
-    <section id="about" style="padding: 20px;">
+    <section id="about">
         <h2>About Me</h2>
-        <p>
-            My name is Nodoka and I am a student at FCIS. 
-            I am interested in web application development and enjoy building websites using simple technologies such as HTML, CSS, and JavaScript.
-            I like designing clean and minimalist webpages and experimenting with interactive elements like small games and useful web tools.
+        <p style="text-align: center; font-size: 1.1rem;">
+            I am a G11 student.
         </p>
     </section>
 
-
-    <section id="learning" style="padding: 20px;">
-        <h2>Learning</h2>
-        <ul>
-            <li>HTML webpage structure</li>
-            <li>CSS layout and minimalist design</li>
-            <li>JavaScript interactive features</li>
-            <li>Front-end web development</li>
-        </ul>
-    </section>
-
-
-    <section id="projects" style="padding: 20px;">
-        <h2>Project Demo</h2>
+    <section id="hobbies">
+        <h2>Hobbies</h2>
         <div class="card">
-            <h3>Portfolio Website</h3>
-            <p>A personal website built with HTML, CSS and JavaScript.</p>
+            <h3>Socializing</h3>
+            <p>I love spending time talking with my friends. Casual conversations are always the highlight of my day.</p>
         </div>
         <div class="card">
-            <h3>Simple Task Tool</h3>
-            <p>A small JavaScript tool to manage simple tasks.</p>
+            <h3>Gaming</h3>
+            <p>I enjoy playing video games. I love the experience of focusing on a challenge and sharing fun moments.</p>
+        </div>
+        <div class="card">
+            <h3>Daily Routine</h3>
+            <p>I value the simple, peaceful times in my routine, surrounded by things I love.</p>
         </div>
     </section>
 
-
-    <section id="resources" style="padding: 20px;">
-        <h2>Uploaded Resources</h2>
-        <input type="file" id="fileInput">
-        <button onclick="upload()">Upload</button>
-        <p id="status"></p>
+    <section id="resources">
+        <h2>Resources</h2>
+        <div class="upload-box">
+            <input type="file" id="fileInput" style="margin-bottom: 25px;"><br>
+            <button onclick="upload()">Upload File</button>
+        </div>
     </section>
 
-
-    <section id="games" style="padding: 20px;">
+    <section id="games">
         <h2>Mini Game</h2>
-        <p>Click the button to increase your score.</p>
-        <button onclick="addScore()">Click</button>
-        <p>Score: <span id="score">0</span></p>
+        <div class="game-box">
+            <p>Click Counter</p>
+            <div class="score-display" id="score">0</div>
+            <button onclick="addScore()">Click</button>
+        </div>
     </section>
 
-
-    <footer style="text-align: center; padding: 20px; background-color: #e6e6fa;">
-        <p>© 2026 Nodoka</p>
+    <footer>
+        <p>© 2026 NODOKA | G11 STUDENT</p>
     </footer>
 
-
-    <script src="script.js"></script>
-
+    <script>
+        let score = 0;
+        function addScore() {
+            score++;
+            document.getElementById('score').innerText = score;
+        }
+        function upload() {
+            alert('File selection successful.');
+        }
+    </script>
 </body>
-
 </html>
