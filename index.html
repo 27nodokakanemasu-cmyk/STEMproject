@@ -1,79 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wakana's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Nodoka Portfolio</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Bebas+Neue&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <ul class="nav-links">
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#career">Career</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#games">Mini Games</a></li>
-        </ul>
-    </nav>
 
-    <!-- Header -->
-    <header>
-        <img src="your-photo.jpg" alt="Wakana's Photo" class="profile-pic">
-        <h1>Hello, I'm Wakana!</h1>
-        <p>High School Student | Web Apps Developer | Minimalist Design Lover</p>
-    </header>
+<nav>
+<h2 class="logo">Nodoka</h2>
 
-    <!-- About Me Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi! I’m Wakana, a student exploring web development and interactive projects using only HTML, CSS, and JavaScript. I love minimalistic designs, vibrant color schemes, and creating fun, interactive web experiences.</p>
-    </section>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#learning">Learning</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#games">Games</a></li>
+</ul>
 
-    <!-- Career Section -->
-    <section id="career">
-        <h2>Career</h2>
-        <ul>
-            <li>High School Student focused on web development and design</li>
-            <li>Passionate about creative digital projects</li>
-            <li>Interested in human geography, science, and multimedia</li>
-        </ul>
-    </section>
+</nav>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Project Demonstration</h2>
-        <div class="project-card">
-            <h3>Portfolio Website</h3>
-            <p>A minimalist website to showcase my career and projects.</p>
-        </div>
-        <div class="project-card">
-            <h3>Interactive Mini Games</h3>
-            <p>Fun JavaScript-based games for learning and entertainment.</p>
-        </div>
-    </section>
+<header>
 
-    <!-- Resources Section -->
-    <section id="resources">
-        <h2>Upload Resources</h2>
-        <p>Upload your files here:</p>
-        <input type="file" id="file-upload" multiple>
-        <div id="file-list"></div>
-    </section>
+<img src="profile.jpg" class="profile">
 
-    <!-- Mini Games Section -->
-    <section id="games">
-        <h2>Mini Games</h2>
-        <button id="click-game-btn">Click Game</button>
-        <p>Score: <span id="score">0</span></p>
-    </section>
+<h1>Hello, I'm Nodoka</h1>
 
-    <footer>
-        <p>&copy; 2026 Wakana Portfolio</p>
-    </footer>
+<p>Student | Web Application Developer</p>
 
-    <script src="script.js"></script>
+</header>
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<p>
+My name is Nodoka and I am a student. 
+I am interested in web application development and enjoy building websites using simple technologies such as HTML, CSS, and JavaScript.
+
+I like designing clean and minimalist webpages and experimenting with interactive elements like small games and useful web tools.
+</p>
+
+</section>
+
+<section id="learning">
+
+<h2>Learning</h2>
+
+<ul>
+<li>HTML webpage structure</li>
+<li>CSS layout and minimalist design</li>
+<li>JavaScript interactive features</li>
+<li>Front-end web development</li>
+</ul>
+
+</section>
+
+<section id="projects">
+
+<h2>Project Demo</h2>
+
+<div class="card">
+
+<h3>Portfolio Website</h3>
+<p>A personal website built with HTML, CSS and JavaScript.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Simple Task Tool</h3>
+<p>A small JavaScript tool to manage simple tasks.</p>
+
+</div>
+
+</section>
+
+<section id="resources">
+
+<h2>Uploaded Resources</h2>
+<input type="file" id="fileInput">
+<button onclick="upload()">Upload</button>
+<p id="status"></p>
+
+</section>
+
+<section id="games">
+
+<h2>Mini Game</h2>
+<p>Click the button to increase your score.</p>
+<button onclick="addScore()">Click</button>
+<p>Score: <span id="score">0</span></p>
+
+</section>
+
+<footer>
+<p>© 2026 Nodoka</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
